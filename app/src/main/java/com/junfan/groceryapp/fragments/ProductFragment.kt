@@ -27,16 +27,8 @@ import kotlinx.android.synthetic.main.fragment_product.view.*
 
 class ProductFragment : Fragment() {
 
-    var productList: ArrayList<Product> = ArrayList()
-    var mContext: Context? = null
     lateinit var adapterSubCategory: AdapterSubCategory
-
     private var sub_id: Int? = null
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        mContext = context
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +43,6 @@ class ProductFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         var view = inflater.inflate(R.layout.fragment_product, container, false)
-
         init(view)
         return view
     }
@@ -64,20 +55,17 @@ class ProductFragment : Fragment() {
     }
 
     fun getData() {
-
         var requestQueue = Volley.newRequestQueue(activity)
         var request = StringRequest(
             Request.Method.GET,
             Endpoints.getProductBySubId(sub_id!!),
             Response.Listener {
-                Log.d("abcde", it.toString())
                 var gson = Gson()
                 var productResponse = gson.fromJson(it, ProductResponse::class.java)
                 adapterSubCategory.setData(productResponse.data)
             },
             Response.ErrorListener {
-                //Toast.makeText(activity, it.message, Toast.LENGTH_SHORT).show()
-                //Log.d("abc", it.message.toString())
+                Toast.makeText(activity, it.message, Toast.LENGTH_SHORT).show()
             }
         )
         requestQueue.add(request)

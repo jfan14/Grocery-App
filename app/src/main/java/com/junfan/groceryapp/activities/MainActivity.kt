@@ -34,8 +34,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        //var fragmentAdapter = ViewPagerAdapter(supportFragmentManager)
-        //view_pager_main.adapter = fragmentAdapter
         Picasso.get().load("https://pub-static.haozhaopian.net/assets/projects/pages/3d4d74c0-f53c-11e9-9514-3f31cfb386e6_12ddd30c-5a94-4145-9034-5c6b0a462df2_thumb.jpg")
             .into(image_view_banner)
         getData()

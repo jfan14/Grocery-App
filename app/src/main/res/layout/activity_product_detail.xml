@@ -1,0 +1,48 @@
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/green_faded"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/image_view_detail"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"/>
+
+    <TextView
+        android:id="@+id/text_view_name_detail"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="Product Name"
+        android:layout_below="@+id/image_view_detail"/>
+
+    <TextView
+        android:id="@+id/text_view_unit_detail"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="Unit"
+        android:layout_below="@+id/text_view_name_detail"/>
+
+    <TextView
+        android:id="@+id/text_view_price_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price"
+        android:layout_alignParentBottom="true"
+        android:textSize="30dp"/>
+
+    <Button
+        android:id="@+id/button_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add to cart"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textSize="20dp"/>
+
+</RelativeLayout>

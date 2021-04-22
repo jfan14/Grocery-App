@@ -36,8 +36,7 @@ class AdapterCategory(var mContext: Context) :
         mList = list
         notifyDataSetChanged()
     }
-
-
+    
     override fun getItemCount(): Int {
         return mList.size
     }

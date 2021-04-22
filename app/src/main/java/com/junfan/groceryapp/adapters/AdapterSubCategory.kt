@@ -1,19 +1,20 @@
 package com.junfan.groceryapp.adapters
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.junfan.groceryapp.R
+import com.junfan.groceryapp.activities.ProductDetailActivity
 import com.junfan.groceryapp.app.Config
-import com.junfan.groceryapp.models.Category
 import com.junfan.groceryapp.models.Product
+import com.junfan.groceryapp.models.Product.Companion.PRODUCT_KEY
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.row_category_adapter.view.*
 import kotlinx.android.synthetic.main.row_product_adapter.view.*
-
 
 class AdapterSubCategory(var mContext: Context): RecyclerView.Adapter<AdapterSubCategory.ViewHolder>() {
 
@@ -47,6 +48,13 @@ class AdapterSubCategory(var mContext: Context): RecyclerView.Adapter<AdapterSub
                 .get()
                 .load("${Config.IMAGE_URL+product.image}")
                 .into(itemView.image_view_product)
+
+            itemView.setOnClickListener {
+                var intent = Intent(mContext, ProductDetailActivity::class.java)
+                intent.putExtra(PRODUCT_KEY, product)
+                mContext.startActivity(intent)
+
+            }
         }
     }
 }

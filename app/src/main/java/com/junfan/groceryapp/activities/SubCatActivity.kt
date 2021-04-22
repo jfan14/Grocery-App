@@ -47,12 +47,10 @@ class SubCatActivity : AppCompatActivity() {
                 var subCategoryResponse = gson.fromJson(it, SubCategoryResponse::class.java)
                 subCategoryList = subCategoryResponse.data
                 for(subCategory in subCategoryList) {
-                    Log.d("abcd", "hello")
                     viewPageAdapter.addFragment(subCategory)
                 }
                 view_pager_sub.adapter = viewPageAdapter
                 tab_layout_sub.setupWithViewPager(view_pager_sub)
-                Log.d("abd", "${subCategoryList}")
             },
             Response.ErrorListener {
                 Toast.makeText(applicationContext, it.message, Toast.LENGTH_SHORT).show()
