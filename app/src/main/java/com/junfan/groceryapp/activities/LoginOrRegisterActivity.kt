@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.junfan.groceryapp.R
+import com.junfan.groceryapp.session.SessionManager
 import kotlinx.android.synthetic.main.activity_login_or_register.*
 
 class LoginOrRegisterActivity : AppCompatActivity() {
@@ -26,7 +27,11 @@ class LoginOrRegisterActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        if(getSharedPreferences("my_pref", Context.MODE_PRIVATE).getBoolean("isLoggedIn",false)) {
+        /*if(getSharedPreferences("my_pref", Context.MODE_PRIVATE).getBoolean("isLoggedIn",false)) {
+            startActivity(Intent(this, MainActivity::class.java))
+        }*/
+        var sessionManager = SessionManager(this)
+        if(sessionManager.isLoggedIn()) {
             startActivity(Intent(this, MainActivity::class.java))
         }
     }

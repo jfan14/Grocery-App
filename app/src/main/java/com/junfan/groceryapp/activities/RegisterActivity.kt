@@ -25,6 +25,10 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun init() {
 
+        text_view_register.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
+
         button_register_register.setOnClickListener {
             var firstName = edit_text_firstname_register.text.toString()
             var email = edit_text_email_register.text.toString()
@@ -53,7 +57,7 @@ class RegisterActivity : AppCompatActivity() {
                     startActivity(intent)
                 },
                 Response.ErrorListener {
-                    Toast.makeText(applicationContext, it.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "email has been registered", Toast.LENGTH_SHORT).show()
                 }
             )
             requestQueue.add(jsonRequest)
