@@ -16,6 +16,8 @@
 
     <EditText
         android:id="@+id/edit_text_firstname_register"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="15dp"
         android:background="@drawable/item_background_design"
         android:textColorHint="@color/light_green"
         android:paddingLeft="16dp"
@@ -32,6 +34,8 @@
         android:background="@drawable/item_background_design"
         android:textColorHint="@color/light_green"
         android:paddingLeft="16dp"
+        android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:drawablePadding="15dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="20dp"
@@ -46,6 +50,8 @@
         android:background="@drawable/item_background_design"
         android:textColorHint="@color/light_green"
         android:paddingLeft="16dp"
+        android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="15dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="20dp"
@@ -65,6 +71,8 @@
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_baseline_phone_iphone_24"
+        android:drawablePadding="15dp"
         android:hint="Mobile"
         android:textSize="26dp"
         android:inputType="phone"/>

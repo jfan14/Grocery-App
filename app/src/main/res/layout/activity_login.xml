@@ -1,73 +1,77 @@
-<LinearLayout android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/green_faded"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:orientation="vertical">
 
     <ImageView
-        android:layout_marginTop="36dp"
         android:id="@+id/image_view_login"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="36dp" />
 
     <TextView
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
         android:text="LOGIN"
         android:textColor="@color/white"
         android:textSize="46dp"
-        android:textStyle="bold"
-        android:gravity="center"/>
+        android:textStyle="bold" />
 
     <EditText
-        android:paddingLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:drawableLeft="@drawable/ic_baseline_email_24"
         android:id="@+id/edit_text_email_login"
-        android:background="@drawable/item_background_design"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/item_background_design"
         android:hint="Email"
+        android:paddingLeft="15dp"
+        android:drawablePadding="15dp"
         android:textColorHint="@color/light_green"
-        android:textSize="36dp"/>
+        android:textSize="36dp" />
 
     <EditText
-        android:paddingLeft="15dp"
-        android:background="@drawable/item_background_design"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:id="@+id/edit_text_password_login"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/item_background_design"
         android:hint="Password"
+        android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="15dp"
+        android:paddingLeft="15dp"
         android:textColorHint="@color/light_green"
-        android:textSize="36dp"/>
+        android:textSize="36dp" />
 
     <Button
         android:id="@+id/button_login_login"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp"
-        android:background="@drawable/button_design"
-        android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_design"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
         android:text="Login"
         android:textColor="#69FF97"
-        android:layout_gravity="center"
-        android:textSize="30dp"/>
+        android:textSize="30dp" />
 
     <TextView
         android:id="@+id/text_view_login"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already have account? Click here to login"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Don't have account? Click here to register"
         android:textColor="@color/white"
-        android:textSize="20dp"
-        android:layout_gravity="center"/>
+        android:textSize="20dp" />
 
 </LinearLayout>
