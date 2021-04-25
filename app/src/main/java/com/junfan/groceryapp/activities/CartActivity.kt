@@ -31,6 +31,7 @@ class CartActivity : AppCompatActivity() {
         recycler_view_cart.adapter = cartAdapter
         recycler_view_cart.layoutManager = LinearLayoutManager(this)
 
+
         button_back_to_shopping.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }

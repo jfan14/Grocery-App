@@ -3,7 +3,9 @@ package com.junfan.groceryapp.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import com.junfan.groceryapp.R
 import com.junfan.groceryapp.app.Config
 import com.junfan.groceryapp.database.DBHelper
@@ -30,15 +32,16 @@ class ProductDetailActivity : AppCompatActivity() {
 
         Picasso
             .get()
-            .load("${Config.IMAGE_URL+product.image}")
+            .load("${Config.IMAGE_URL + product.image}")
             .into(image_view_detail)
 
         text_view_name_detail.text = product.productName
-        text_view_unit_detail.text = product.unit
+        text_view_unit_detail.text = product.description
         text_view_price_detail.text = product.price.toString()
 
         button_add_to_cart_detail.setOnClickListener {
             dbHelper.addProduct(product)
+            Toast.makeText(applicationContext, "Added to Cart", Toast.LENGTH_SHORT).show()
         }
 
         button_view_cart_detail.setOnClickListener {
