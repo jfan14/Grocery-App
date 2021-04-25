@@ -2,7 +2,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@drawable/green_faded"
+
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ImageView
@@ -17,6 +17,7 @@
         android:layout_height="wrap_content"
         android:textSize="30dp"
         android:text="Product Name"
+        android:textColor="#000"
         android:layout_below="@+id/image_view_detail"/>
 
     <TextView
@@ -25,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30dp"
+        android:textColor="#000"
         android:text="Unit"
         android:layout_below="@+id/text_view_name_detail"/>
 
@@ -33,16 +35,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Price"
+        android:textColor="#000"
+        android:padding="8dp"
         android:layout_alignParentBottom="true"
         android:textSize="30dp"/>
 
     <Button
-        android:id="@+id/button_detail"
+        android:id="@+id/button_view_cart_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="View Cart"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/button_add_to_cart_detail"
+        android:textSize="20dp"
+        android:background="@drawable/button_design"
+        android:backgroundTint="@color/light_green"
+        android:padding="8dp"
+        android:layout_marginRight="8dp"/>
+
+    <Button
+        android:id="@+id/button_add_to_cart_detail"
+        android:layout_width="wrap_content"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"
         android:text="Add to cart"
+        android:background="@drawable/button_design"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:backgroundTint="@color/light_green"
+        android:padding="8dp"
         android:textSize="20dp"/>
 
 </RelativeLayout>

@@ -1,20 +1,27 @@
 package com.junfan.groceryapp.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import com.junfan.groceryapp.R
 import com.junfan.groceryapp.app.Config
+import com.junfan.groceryapp.database.DBHelper
 import com.junfan.groceryapp.models.Product
 import com.junfan.groceryapp.models.Product.Companion.PRODUCT_KEY
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_product_detail.*
+import kotlinx.android.synthetic.main.row_cart_adapter.*
 import kotlinx.android.synthetic.main.row_product_adapter.*
 
 class ProductDetailActivity : AppCompatActivity() {
+
+    lateinit var dbHelper: DBHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_detail)
 
+        dbHelper = DBHelper(this)
         init()
     }
 
@@ -29,5 +36,14 @@ class ProductDetailActivity : AppCompatActivity() {
         text_view_name_detail.text = product.productName
         text_view_unit_detail.text = product.unit
         text_view_price_detail.text = product.price.toString()
+
+        button_add_to_cart_detail.setOnClickListener {
+            dbHelper.addProduct(product)
+        }
+
+        button_view_cart_detail.setOnClickListener {
+            var intent = Intent(this, CartActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
