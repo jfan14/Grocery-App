@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="My Cart"
-        android:textColor="#000"
+        android:textColor="@color/light_green"
         android:textSize="36dp"
         android:textStyle="bold" />
 
@@ -36,6 +36,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:background="@drawable/button_design"
+        android:backgroundTint="@color/light_green"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:layout_marginTop="10dp"
         android:text="Place Order"
         android:textSize="20dp" />
