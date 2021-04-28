@@ -78,6 +78,9 @@ class AddressActivity : AppCompatActivity(), AddressAdapter.OnAdapterListener {
             android.R.id.home -> {
                 startActivity(Intent(this, CartActivity::class.java))
             }
+            R.id.menu_account -> {
+                startActivity(Intent(this, AccountActivity::class.java))
+            }
         }
         return true
     }

@@ -100,6 +100,10 @@ class DBHelper(var mContext: Context) :
         return db.delete(TABLE_NAME, whereClause, whereArgs)
     }
 
+    fun deleteAllProduct(): Int {
+        return db.delete(TABLE_NAME, null, null)
+    }
+
     fun getAllProduct(): ArrayList<Product> {
         var list: ArrayList<Product> = ArrayList()
         var columns = arrayOf(

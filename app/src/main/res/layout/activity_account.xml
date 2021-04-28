@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/deeper_green"
+    android:padding="16dp">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <TextView
+            android:id="@+id/text_view_name_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@id/image"
+            android:text="Jun Fan"
+            android:textColor="@color/deeper_green"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_view_id_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_name_account"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@+id/image"
+            android:text="This is userId"
+            android:textColor="@color/deeper_green" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relative_layout"
+        android:layout_marginTop="26dp">
+
+        <Button
+            android:id="@+id/button_order_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:text="Order History"
+            android:textColor="@color/deeper_green"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_marginTop="1dp"
+            android:id="@+id/button_manage_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_order_history"
+            android:text="Manage Address"
+            android:background="@color/white"
+            android:textColor="@color/deeper_green"
+            android:textStyle="bold"
+            android:textSize="16dp"/>
+    </RelativeLayout>
+</RelativeLayout>

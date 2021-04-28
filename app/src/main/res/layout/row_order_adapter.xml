@@ -1,0 +1,57 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order Date"
+        android:textColor="@color/deeper_green"
+        android:textSize="16dp"/>
+
+    <TextView
+        android:id="@+id/order_date_orders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="The Date"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/deeper_green"/>
+
+    <TextView
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Items"
+        android:textColor="@color/deeper_green"
+        android:textSize="16dp"/>
+
+    <TextView
+        android:id="@+id/order_items_orders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Items Ordered"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textColor="@color/deeper_green"/>
+
+    <TextView
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order Amount"
+        android:textColor="@color/deeper_green"
+        android:textSize="16dp"/>
+
+    <TextView
+        android:id="@+id/order_total_orders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Items Ordered"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/deeper_green"/>
+
+</LinearLayout>

@@ -102,6 +102,9 @@ class UpdateAddressActivity : AppCompatActivity() {
             android.R.id.home -> {
                 startActivity(Intent(this, AddressActivity::class.java))
             }
+            R.id.menu_account -> {
+                startActivity(Intent(this, AccountActivity::class.java))
+            }
         }
         return true
     }

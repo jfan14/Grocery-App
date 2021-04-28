@@ -2,14 +2,14 @@ package com.junfan.groceryapp.models
 
 data class OrderResponse(
     val count: Int,
-    val data: List<Order>,
+    val data: ArrayList<Order>,
     val error: Boolean
 )
 
 data class Order(
     //val __v: Int,
     //val _id: String,
-    //val date: String,
+    val date: String,
     val orderStatus: String,
     val orderSummary: OrderSummary,
     val payment: Payment,

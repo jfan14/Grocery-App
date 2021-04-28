@@ -23,6 +23,7 @@ import com.junfan.groceryapp.models.Product
 import com.junfan.groceryapp.session.SessionManager
 import kotlinx.android.synthetic.main.activity_payment.*
 import kotlinx.android.synthetic.main.app_bar.*
+import org.json.JSONArray
 import org.json.JSONObject
 
 class PaymentActivity : AppCompatActivity() {
@@ -78,6 +79,9 @@ class PaymentActivity : AppCompatActivity() {
             android.R.id.home -> {
                 startActivity(Intent(this, MainActivity::class.java))
             }
+            R.id.menu_account -> {
+                startActivity(Intent(this, AccountActivity::class.java))
+            }
         }
         return true
     }
@@ -103,11 +107,11 @@ class PaymentActivity : AppCompatActivity() {
         address = intent.getSerializableExtra("ADDRESS") as Address
 
         var orderJsonObject = JSONObject()
-        orderJsonObject.put("orderAmount", orderSummary.orderAmount)
-        orderJsonObject.put("discount", orderSummary.discount)
-        orderJsonObject.put("ourPrice", orderSummary.ourPrice)
-        orderJsonObject.put("deliveryCharges", orderSummary.deliveryCharges)
-        orderJsonObject.put("totalAmount", orderSummary.totalAmount)
+        orderJsonObject.put("orderAmount", orderSummary.orderAmount.toInt())
+        orderJsonObject.put("discount", orderSummary.discount.toInt())
+        orderJsonObject.put("ourPrice", orderSummary.ourPrice.toInt())
+        orderJsonObject.put("deliveryCharges", orderSummary.deliveryCharges.toInt())
+        orderJsonObject.put("totalAmount", orderSummary.totalAmount.toInt())
 
         var paymentJsonObject = JSONObject()
         if(option.equals("cash")) {
@@ -131,17 +135,17 @@ class PaymentActivity : AppCompatActivity() {
         userJsonObject.put("email", sessionManager.getEmail())
         userJsonObject.put("mobile", sessionManager.getMobile())
 
-        var jsonArray: ArrayList<JSONObject> = ArrayList()
+        var jsonArray = JSONArray()
         var productJsonObject = JSONObject()
         for(i in 0 until productList.size) {
             var product = productList[i]
             //productJsonObject.put("_id", product._id)
             productJsonObject.put("quantity", product.quantity)
-            productJsonObject.put("mrp", product.mrp)
+            productJsonObject.put("mrp", product.mrp?.toInt())
             productJsonObject.put("productName", product.productName)
-            productJsonObject.put("price", product.price)
+            productJsonObject.put("price", product.price?.toInt())
             productJsonObject.put("image", product.image)
-            jsonArray.add(productJsonObject)
+            jsonArray.put(productJsonObject)
         }
 
         var jsonObject = JSONObject()
@@ -159,7 +163,10 @@ class PaymentActivity : AppCompatActivity() {
             Endpoints.postOrder(),
             jsonObject,
             Response.Listener {
+                dbHelper.deleteAllProduct()
                 Toast.makeText(applicationContext, "Successful Save order", Toast.LENGTH_SHORT).show()
+                Log.d("ae", "${Endpoints.postOrder().toString()}")
+                Log.d("ae", "$jsonObject")
             },
             Response.ErrorListener {
                 Log.d("ae", "${Endpoints.postOrder().toString()}")

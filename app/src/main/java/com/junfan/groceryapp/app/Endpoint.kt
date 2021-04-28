@@ -10,7 +10,7 @@ class Endpoints {
         private const val URL_REGISTER = "auth/register"
         private const val URL_LOGIN = "auth/login"
         private const val URL_ADDRESS = "address/"
-        private const val URL_ORDER = "orders"
+        private const val URL_ORDER = "orders/"
 
         fun getCategory(): String{
             return "${Config.BASE_URL + URL_CATEGORY}"
@@ -52,6 +52,9 @@ class Endpoints {
             return "${Config.BASE_URL + URL_ORDER}"
         }
 
+        fun getOrders(id: String): String {
+            return "${Config.BASE_URL + URL_ORDER + id}"
+        }
     }
 
 }
