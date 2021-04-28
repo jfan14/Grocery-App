@@ -12,7 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GroceryApp"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.CartActivity"></activity>
+        <activity android:name=".activities.FinishActivity"></activity>
+        <activity android:name=".activities.PaymentActivity" />
+        <activity android:name=".activities.UpdateAddressActivity" />
+        <activity android:name=".activities.AddAddressActivity" />
+        <activity android:name=".activities.AddressActivity" />
+        <activity android:name=".activities.CartActivity" />
         <activity android:name=".activities.RegisterActivity" />
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.LoginOrRegisterActivity">
@@ -24,13 +29,7 @@
         </activity>
         <activity android:name=".activities.ProductDetailActivity" />
         <activity android:name=".activities.SubCatActivity" />
-        <activity android:name=".activities.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".activities.MainActivity" />
     </application>
 
 </manifest>

@@ -31,6 +31,22 @@ class SessionManager(val mContext: Context) {
         return sharedPreferences.getBoolean(KEY_IS_LOGGED_IN, false)
     }
 
+    fun getUserId(): String? {
+        return sharedPreferences.getString(KEY_ID, "")
+    }
+
+    fun getEmail(): String? {
+        return sharedPreferences.getString(KEY_EMAIL, "")
+    }
+
+    fun getMobile(): String? {
+        return sharedPreferences.getString(KEY_MOBILE, "")
+    }
+
+    fun getName(): String? {
+        return sharedPreferences.getString(KEY_FIRSTNAME, "")
+    }
+
     fun logout() {
         editor.clear()
         editor.commit()

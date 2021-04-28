@@ -8,9 +8,12 @@
         android:layout_height="200dp"
         android:id="@+id/view_pager_main"/>-->
 
+    <include layout="@layout/app_bar"/>
+
     <ImageView
         android:id="@+id/image_view_banner"
         android:padding="12dp"
+        android:layout_below="@+id/tool_bar"
         android:layout_width="match_parent"
         android:layout_height="200dp"/>
 

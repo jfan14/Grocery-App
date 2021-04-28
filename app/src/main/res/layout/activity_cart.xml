@@ -1,47 +1,146 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/my_cart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="My Cart"
-        android:textColor="@color/light_green"
-        android:textSize="36dp"
-        android:textStyle="bold" />
+    <include layout="@layout/app_bar" />
 
-    <Button
-        android:id="@+id/button_back_to_shopping"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/button_design"
-        android:backgroundTint="@color/light_green"
-        android:padding="10dp"
-        android:text="Back to Shopping"
-        android:textColor="@color/white" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_cart"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/main_layout"
+        android:layout_below="@+id/tool_bar"
         android:layout_above="@+id/button_place_order_cart"
-        android:layout_below="@id/my_cart"
-        android:layout_marginTop="20dp" />
+        >
+
+        <TextView
+            android:id="@+id/my_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tool_bar"
+            android:layout_centerInParent="true"
+            android:text=""
+            android:textColor="@color/light_green"
+            android:textSize="36dp"
+            android:textStyle="bold" />
+
+        <!--<Button
+
+            android:id="@+id/button_back_to_shopping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/button_design"
+            android:backgroundTint="@color/light_green"
+            android:padding="10dp"
+            android:text="Back to Shopping"
+            android:textColor="@color/white" />-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_cart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/linear_layout"
+            android:layout_marginTop="20dp"/>
+            <!--android:layout_below="@id/tool_bar"-->
+             />
+
+        <RelativeLayout
+            android:id="@+id/linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="16dp">
+            <!--android:layout_above="@+id/button_place_order_cart"-->
+
+
+            <TextView
+                android:id="@+id/price_checkout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/discount_checkout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/price_checkout"
+                android:text="Discount"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/delivery_checkout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/discount_checkout"
+                android:text="Delivery Fee"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/total_checkout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/delivery_checkout"
+                android:text="Total"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/price_checkout_display"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="Price amount"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/discount_checkout_display"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/price_checkout_display"
+                android:layout_alignParentRight="true"
+                android:text="Discount amount"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/delivery_checkout_display"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/discount_checkout_display"
+                android:layout_alignParentRight="true"
+                android:text="Delivery amount"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/total_checkout_display"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/delivery_checkout_display"
+                android:layout_alignParentRight="true"
+                android:text="total amount"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+    </RelativeLayout>
 
     <Button
         android:id="@+id/button_place_order_cart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/button_design"
-        android:backgroundTint="@color/light_green"
-        android:textColor="@color/white"
-        android:textStyle="bold"
         android:layout_marginTop="10dp"
+        android:background="@drawable/button_design"
+        android:backgroundTint="@color/deeper_green"
         android:text="Place Order"
-        android:textSize="20dp" />
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold" />
+
+    <include android:id="@+id/empty_layout"
+        layout="@layout/empty_cart_layout"/>
 
 </RelativeLayout>

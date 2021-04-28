@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/address_adapter_design"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/text_view_pincode_adapter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_city_adapter"
+        android:text="This is the pincode"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/text_view_house_number_adapter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_type_adapter"
+        android:text="This is the house number"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/text_view_street_name_adapter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_house_number_adapter"
+        android:text="This is the street name"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/text_view_type_adapter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is the type"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/text_view_city_adapter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_street_name_adapter"
+        android:text="This is the city"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/button_delete_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_pincode_adapter"
+        android:text="Delete"
+        android:textColor="@color/red"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/button_edit_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_pincode_adapter"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/button_delete_address"
+        android:text="Edit"
+        android:textStyle="bold"
+        android:textColor="@color/deeper_green" />
+
+    <RadioButton
+        android:id="@+id/radio_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true" />
+
+</RelativeLayout>

@@ -1,0 +1,149 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="3"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <include layout="@layout/app_bar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@color/deeper_green"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_marginTop="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amount to pay"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/text_view_amount_payment"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total of order"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/text_view_saved_payment"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You saved how much"
+            android:textSize="20dp"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        android:layout_weight="2">
+
+        <TextView
+            android:id="@+id/subtotal_payment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subtotal"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/discount_payment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/subtotal_payment"
+            android:text="Discount"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/delivery_payment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/discount_payment"
+            android:text="Delivery Charges"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/amount_payment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/delivery_payment"
+            android:text="Order Amount"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/subtotal_payment_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Subtotal"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/discount_payment_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/subtotal_payment_display"
+            android:layout_alignParentRight="true"
+            android:text="Discount amount"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/delivery_payment_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/discount_payment_display"
+            android:layout_alignParentRight="true"
+            android:text="Delivery amount"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/amount_payment_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/delivery_payment_display"
+            android:layout_alignParentRight="true"
+            android:text="Order amount"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button_pay_online"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pay Online"
+            android:background="@drawable/button_design"
+            android:backgroundTint="@color/deeper_green"
+            android:textColor="@color/white"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textStyle="bold"
+            android:layout_alignParentBottom="true"/>
+
+        <Button
+            android:id="@+id/button_pay_cash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pay Cash On Delivery"
+            android:background="@drawable/button_design"
+            android:backgroundTint="@color/deeper_green"
+            android:textColor="@color/white"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textStyle="bold"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+</LinearLayout>

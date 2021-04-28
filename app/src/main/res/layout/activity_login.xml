@@ -34,7 +34,7 @@
         android:paddingLeft="15dp"
         android:drawablePadding="15dp"
         android:textColorHint="@color/light_green"
-        android:textSize="36dp" />
+        android:textSize="26dp" />
 
     <EditText
         android:id="@+id/edit_text_password_login"
@@ -45,11 +45,12 @@
         android:layout_marginRight="30dp"
         android:background="@drawable/item_background_design"
         android:hint="Password"
+        android:inputType="textPassword"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:drawablePadding="15dp"
         android:paddingLeft="15dp"
         android:textColorHint="@color/light_green"
-        android:textSize="36dp" />
+        android:textSize="26dp" />
 
     <Button
         android:id="@+id/button_login_login"

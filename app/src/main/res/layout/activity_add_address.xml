@@ -1,0 +1,98 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <include layout="@layout/app_bar"/>
+
+    <TextView
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter your Address Information"
+        android:gravity="center"
+        android:textSize="26dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/deeper_green"/>
+
+    <EditText
+
+        android:id="@+id/edit_text_house_number"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="House Number"
+        android:textColorHint="@color/white"
+        android:background="@drawable/button_design"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/deeper_green"/>
+
+    <EditText
+        android:id="@+id/edit_text_street_name"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Street Name"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:background="@drawable/button_design"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:backgroundTint="@color/deeper_green"/>
+
+    <EditText
+        android:id="@+id/edit_text_type"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Type"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:background="@drawable/button_design"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:backgroundTint="@color/deeper_green"/>
+
+    <EditText
+        android:id="@+id/edit_text_city"
+        android:layout_margin="10dp"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="City"
+        android:textColorHint="@color/white"
+        android:background="@drawable/button_design"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:backgroundTint="@color/deeper_green"/>
+
+    <EditText
+        android:id="@+id/edit_text_pincode"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Pincode"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:background="@drawable/button_design"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:backgroundTint="@color/deeper_green"/>
+
+    <Button
+        android:layout_marginTop="16dp"
+        android:id="@+id/button_add_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Submit"
+        android:textSize="20dp"
+        android:background="@drawable/button_design"
+        android:backgroundTint="@color/deeper_green"
+        android:textColor="@color/white"
+        android:padding="16dp"/>
+
+</LinearLayout>

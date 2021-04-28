@@ -1,26 +1,29 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="vertical">
 
-    android:padding="5dp">
+    <include layout="@layout/app_bar"/>
 
     <ImageView
         android:id="@+id/image_view_detail"
         android:layout_width="match_parent"
+        android:layout_below="@+id/tool_bar"
         android:layout_height="350dp" />
 
     <TextView
+        android:padding="5dp"
         android:id="@+id/text_view_name_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/image_view_detail"
         android:layout_marginTop="5dp"
         android:text="Product Name"
-        android:textColor="#000"
+        android:textColor="@color/deeper_green"
         android:textSize="30dp" />
 
     <ScrollView
+        android:padding="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/text_view_name_detail"
@@ -32,22 +35,24 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Unit"
-            android:textColor="#000"
+            android:textColor="@color/deeper_green"
             android:textSize="20dp" />
 
     </ScrollView>
 
     <TextView
+        android:layout_marginBottom="5dp"
         android:id="@+id/text_view_price_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:padding="8dp"
         android:text="Price"
-        android:textColor="#000"
+        android:textColor="@color/deeper_green"
         android:textSize="30dp" />
 
     <Button
+        android:layout_marginBottom="5dp"
         android:id="@+id/button_view_cart_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,20 +60,21 @@
         android:layout_marginRight="8dp"
         android:layout_toLeftOf="@+id/button_add_to_cart_detail"
         android:background="@drawable/button_design"
-        android:backgroundTint="@color/light_green"
+        android:backgroundTint="@color/deeper_green"
         android:padding="8dp"
         android:text="View Cart"
         android:textColor="@color/white"
         android:textSize="20dp" />
 
     <Button
+        android:layout_marginBottom="5dp"
         android:id="@+id/button_add_to_cart_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:background="@drawable/button_design"
-        android:backgroundTint="@color/light_green"
+        android:backgroundTint="@color/deeper_green"
         android:padding="8dp"
         android:text="Add to cart"
         android:textColor="@color/white"

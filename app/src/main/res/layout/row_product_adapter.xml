@@ -19,9 +19,9 @@
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@+id/image_view_product"
         android:padding="5dp"
-        android:textColor="@color/light_green"
+        android:textColor="@color/deeper_green"
         android:text="Category Name"
-        android:textSize="28dp"
+        android:textSize="20dp"
         android:textStyle="bold"/>
 
     <TextView
@@ -34,7 +34,7 @@
         android:layout_toRightOf="@+id/image_view_product"
         android:text="20"
         android:textStyle="bold"
-        android:textColor="@color/light_green"
-        android:textSize="30dp" />
+        android:textColor="@color/deeper_green"
+        android:textSize="20dp" />
 
 </RelativeLayout>

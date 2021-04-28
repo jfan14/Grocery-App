@@ -1,0 +1,30 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/my_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Cart is Empty"
+        android:layout_centerInParent="true"
+        android:textColor="@color/deeper_green"
+        android:textSize="36dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button_place_order_cart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/button_design"
+        android:backgroundTint="@color/deeper_green"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Place Order"
+        android:textSize="20dp"
+        />
+
+</RelativeLayout>
