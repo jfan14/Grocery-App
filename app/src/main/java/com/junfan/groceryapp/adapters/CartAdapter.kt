@@ -58,7 +58,7 @@ class CartAdapter(var mContext: Context) : RecyclerView.Adapter<CartAdapter.MyVi
 
             itemView.text_view_name_cart.text = product.productName
             itemView.text_view_price_cart.text = product.price.toString()
-            itemView.text_view_count_cart_adapter.text = product.count.toString()
+            itemView.text_view_count_cart_adapter.text = product.quantity.toString()
 
             Picasso
                 .get()
@@ -72,7 +72,7 @@ class CartAdapter(var mContext: Context) : RecyclerView.Adapter<CartAdapter.MyVi
                 //cartActivity.setData(mList)
                 //cartActivity.updateText()
                 listener?.onButtonClicked(it, position)
-                itemView.text_view_count_cart_adapter.text = product.count.toString()
+                itemView.text_view_count_cart_adapter.text = product.quantity.toString()
 
             }
 
@@ -80,7 +80,7 @@ class CartAdapter(var mContext: Context) : RecyclerView.Adapter<CartAdapter.MyVi
                 dbHelper.decrementQuantity(product)
                 mList = dbHelper.getAllProduct()
                 setData(mList)
-                itemView.text_view_count_cart_adapter.text = product.count.toString()
+                itemView.text_view_count_cart_adapter.text = product.quantity.toString()
                 listener?.onButtonClicked(it, position)
 
             }
@@ -92,7 +92,7 @@ class CartAdapter(var mContext: Context) : RecyclerView.Adapter<CartAdapter.MyVi
                 //cartActivity.updateText()
                 listener?.onButtonClicked(it, position)
             }
-            Log.d("abcd", "${product.count}")
+            //Log.d("abcd", "${product.quantity}")
         }
     }
 }

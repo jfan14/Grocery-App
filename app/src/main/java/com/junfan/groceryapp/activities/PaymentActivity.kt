@@ -12,7 +12,9 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.google.gson.JsonObject
 import com.junfan.groceryapp.R
+import com.junfan.groceryapp.app.Config
 import com.junfan.groceryapp.app.Endpoints
 import com.junfan.groceryapp.database.DBHelper
 import com.junfan.groceryapp.models.Address
@@ -86,7 +88,7 @@ class PaymentActivity : AppCompatActivity() {
         var orderSummary = dbHelper.calculation()
 
         text_view_amount_payment.text = "￥${(orderSummary.orderAmount).toString()}"
-        text_view_saved_payment.text = "￥${(orderSummary.discount).toString()}"
+        text_view_saved_payment.text = "You saved ￥${(orderSummary.discount).toString()}"
         subtotal_payment_display.text = "￥${(orderSummary.ourPrice).toString()}"
         delivery_payment_display.text = "￥${(orderSummary.deliveryCharges).toString()}"
         discount_payment_display.text = "-￥${(orderSummary.discount).toString()}"
@@ -124,30 +126,32 @@ class PaymentActivity : AppCompatActivity() {
         addressJsonObject.put("pincode", address.pincode)
 
         var userJsonObject = JSONObject()
-        userJsonObject.put("_id", sessionManager.getUserId())
+        //userJsonObject.put("_id", sessionManager.getUserId())
         userJsonObject.put("name", sessionManager.getName())
         userJsonObject.put("email", sessionManager.getEmail())
         userJsonObject.put("mobile", sessionManager.getMobile())
 
-        var jsonArray: ArrayList<Product> = ArrayList()
+        var jsonArray: ArrayList<JSONObject> = ArrayList()
         var productJsonObject = JSONObject()
         for(i in 0 until productList.size) {
             var product = productList[i]
-            productJsonObject.put("_id", product._id)
-            productJsonObject.put("quantity", product.count)
+            //productJsonObject.put("_id", product._id)
+            productJsonObject.put("quantity", product.quantity)
             productJsonObject.put("mrp", product.mrp)
             productJsonObject.put("productName", product.productName)
             productJsonObject.put("price", product.price)
             productJsonObject.put("image", product.image)
-            jsonArray.add(product)
+            jsonArray.add(productJsonObject)
         }
 
         var jsonObject = JSONObject()
+
         jsonObject.put("orderSummary", orderJsonObject)
         jsonObject.put("payment", paymentJsonObject)
         jsonObject.put("user", userJsonObject)
         jsonObject.put("shippingAddress", addressJsonObject)
         jsonObject.put("products", jsonArray)
+        jsonObject.put("userId", sessionManager.getUserId().toString())
 
         var requestQueue = Volley.newRequestQueue(this)
         var jsonRequest = JsonObjectRequest(
@@ -158,8 +162,8 @@ class PaymentActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Successful Save order", Toast.LENGTH_SHORT).show()
             },
             Response.ErrorListener {
-                Log.d("af", "$jsonObject")
-                Log.d("af", "${Endpoints.postOrder()}")
+                Log.d("ae", "${Endpoints.postOrder().toString()}")
+                Log.d("ae", "$jsonObject")
                 Toast.makeText(applicationContext, it.message, Toast.LENGTH_SHORT).show()
             }
         )

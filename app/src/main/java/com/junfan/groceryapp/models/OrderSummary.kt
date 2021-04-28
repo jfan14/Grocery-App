@@ -7,9 +7,9 @@ data class OrderResponse(
 )
 
 data class Order(
-    val __v: Int,
-    val _id: String,
-    val date: String,
+    //val __v: Int,
+    //val _id: String,
+    //val date: String,
     val orderStatus: String,
     val orderSummary: OrderSummary,
     val payment: Payment,
@@ -20,7 +20,7 @@ data class Order(
 )
 
 data class OrderSummary(
-    val _id: String,
+    //val _id: String,
     val deliveryCharges: Float,
     val discount: Float,
     val orderAmount: Float,
@@ -29,13 +29,13 @@ data class OrderSummary(
 )
 
 data class Payment(
-    val _id: String,
+    //val _id: String,
     val paymentMode: String,
     val paymentStatus: String
 )
 
 data class ShippingAddress(
-    val _id: String,
+    //val _id: String,
     val city: String,
     val houseNo: String,
     val pincode: Int,

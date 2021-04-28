@@ -51,6 +51,7 @@ class Endpoints {
         fun postOrder(): String {
             return "${Config.BASE_URL + URL_ORDER}"
         }
+
     }
 
 }

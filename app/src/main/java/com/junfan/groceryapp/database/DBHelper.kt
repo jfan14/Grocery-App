@@ -142,7 +142,6 @@ class DBHelper(var mContext: Context) :
 
         var total = 0f
         var subtotal = 0f
-        var userId = sessionManager.getUserId()
 
         var mList = getAllProduct()
 
@@ -156,6 +155,6 @@ class DBHelper(var mContext: Context) :
         var finalPrice = total - discount + deliveryFee
 
 
-        return OrderSummary(userId!!, deliveryFee, discount, finalPrice, total, finalPrice)
+        return OrderSummary(deliveryFee, discount, finalPrice, total, finalPrice)
     }
 }
