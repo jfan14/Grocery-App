@@ -69,8 +69,6 @@ class CartAdapter(var mContext: Context) : RecyclerView.Adapter<CartAdapter.MyVi
                 dbHelper.incrementQuantity(product)
                 mList = dbHelper.getAllProduct()
                 setData(mList)
-                //cartActivity.setData(mList)
-                //cartActivity.updateText()
                 listener?.onButtonClicked(it, position)
                 itemView.text_view_count_cart_adapter.text = product.quantity.toString()
 
@@ -89,7 +87,6 @@ class CartAdapter(var mContext: Context) : RecyclerView.Adapter<CartAdapter.MyVi
                 dbHelper.deleteProduct(product)
                 mList = dbHelper.getAllProduct()
                 setData(mList)
-                //cartActivity.updateText()
                 listener?.onButtonClicked(it, position)
             }
             //Log.d("abcd", "${product.quantity}")

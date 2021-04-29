@@ -2,6 +2,8 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
+    android:layout_marginTop="1dp"
+    android:background="@color/white"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
@@ -32,7 +34,7 @@
         android:id="@+id/order_items_orders"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Items Ordered"
+        android:text="No Items Ordered"
         android:textSize="16dp"
         android:textStyle="bold"
         android:textColor="@color/deeper_green"/>
@@ -49,7 +51,7 @@
         android:id="@+id/order_total_orders"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Items Ordered"
+        android:text="￥0"
         android:textSize="20dp"
         android:textStyle="bold"
         android:textColor="@color/deeper_green"/>

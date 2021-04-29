@@ -37,7 +37,7 @@ class OrderAdapter(var mContext: Context): RecyclerView.Adapter<OrderAdapter.MyV
             itemView.order_date_orders.text = order.date
             var orderText = ""
             for(i in order.products) {
-                if(i != null) orderText += i.productName
+                orderText += "${i.quantity} x ${i.productName}\n"
             }
             itemView.order_items_orders.text = orderText
             var orderSummary = order.orderSummary

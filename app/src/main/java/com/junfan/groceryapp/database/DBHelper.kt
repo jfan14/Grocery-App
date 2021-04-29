@@ -40,9 +40,9 @@ class DBHelper(var mContext: Context) :
     }
 
     fun addProduct(product: Product) {
+        product.quantity = 1
         if(!productExist(product)) {
             var contentValues = ContentValues()
-            product.quantity = 1
             contentValues.put(COLUMN_ID, product._id)
             contentValues.put(COLUMN_NAME, product.productName)
             contentValues.put(COLUMN_PRICE, product.price)

@@ -47,7 +47,7 @@ class OrderHistoryActivity : AppCompatActivity() {
 
     private fun setupToolbar(){
         var toolbar = tool_bar
-        toolbar.title ="My Cart"
+        toolbar.title ="Order History"
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
@@ -60,7 +60,7 @@ class OrderHistoryActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.menu_cart -> Toast.makeText(applicationContext, "Cart", Toast.LENGTH_SHORT).show()
+            R.id.menu_cart -> startActivity(Intent(this, CartActivity::class.java))
             R.id.menu_settings -> Toast.makeText(applicationContext, "Settings", Toast.LENGTH_SHORT).show()
             R.id.menu_logout -> {
                 sessionManager.logout()

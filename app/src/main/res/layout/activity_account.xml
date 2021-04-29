@@ -36,6 +36,7 @@
             android:layout_marginLeft="16dp"
             android:layout_toRightOf="@+id/image"
             android:text="This is userId"
+            android:textSize="12dp"
             android:textColor="@color/deeper_green" />
     </RelativeLayout>
 

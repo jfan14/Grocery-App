@@ -136,17 +136,20 @@ class PaymentActivity : AppCompatActivity() {
         userJsonObject.put("mobile", sessionManager.getMobile())
 
         var jsonArray = JSONArray()
-        var productJsonObject = JSONObject()
         for(i in 0 until productList.size) {
             var product = productList[i]
+            var productJsonObject = JSONObject()
+            Log.d("abcde", "${product.productName}")
             //productJsonObject.put("_id", product._id)
             productJsonObject.put("quantity", product.quantity)
             productJsonObject.put("mrp", product.mrp?.toInt())
             productJsonObject.put("productName", product.productName)
             productJsonObject.put("price", product.price?.toInt())
             productJsonObject.put("image", product.image)
+
             jsonArray.put(productJsonObject)
         }
+        Log.d("abcde", "${jsonArray}")
 
         var jsonObject = JSONObject()
 

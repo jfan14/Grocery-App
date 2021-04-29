@@ -26,5 +26,9 @@ class AccountActivity : AppCompatActivity() {
         button_order_history.setOnClickListener {
             startActivity(Intent(this, OrderHistoryActivity::class.java))
         }
+
+        button_manage_address.setOnClickListener {
+            startActivity(Intent(this, AddressActivity::class.java))
+        }
     }
 }
