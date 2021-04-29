@@ -15,7 +15,7 @@ data class Order(
     val orderStatus: String,
     val orderSummary: OrderSummary,
     val payment: Payment,
-    val products: List<Product>,
+    val products: ArrayList<Product>,
     val shippingAddress: ShippingAddress,
     val user: User,
     val userId: String

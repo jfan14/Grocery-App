@@ -12,11 +12,12 @@ import com.junfan.groceryapp.models.SubCategory
 class ViewPagerAdapterOrderDetails(fm: FragmentManager): FragmentPagerAdapter(fm) {
 
     lateinit var mFragments1: Fragment
+    lateinit var mFragments2: Fragment
 
     override fun getItem(position: Int): Fragment {
         return when(position) {
             0 -> mFragments1
-            else -> ItemFragment()
+            else -> mFragments2
         }
     }
 
@@ -26,6 +27,7 @@ class ViewPagerAdapterOrderDetails(fm: FragmentManager): FragmentPagerAdapter(fm
 
     fun addFragment(order: Order) {
         mFragments1 = OrderSummaryFragment.newInstance(order)
+        mFragments2 = ItemFragment.newInstance(order.products)
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
