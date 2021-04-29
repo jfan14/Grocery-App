@@ -3,45 +3,46 @@ package com.junfan.groceryapp.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.junfan.groceryapp.R
+import com.junfan.groceryapp.adapters.ViewPagerAdapterOrderDetails
+import com.junfan.groceryapp.fragments.OrderSummaryFragment
+import com.junfan.groceryapp.models.Order
 import com.junfan.groceryapp.session.SessionManager
-import kotlinx.android.synthetic.main.activity_account.*
+import kotlinx.android.synthetic.main.activity_order_details.*
 import kotlinx.android.synthetic.main.app_bar.*
-import java.text.ParseException
-import java.text.SimpleDateFormat
 
-class AccountActivity : AppCompatActivity() {
+class OrderDetailsActivity : AppCompatActivity() {
 
-    lateinit var sessionManager: SessionManager
+    //var sessionManager = SessionManager(this)
+    lateinit var viewPagerAdapterOrderDetail: ViewPagerAdapterOrderDetails
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_account)
+        setContentView(R.layout.activity_order_details)
 
         init()
     }
 
     private fun init() {
         setupToolbar()
-        sessionManager = SessionManager(this)
-        text_view_name_account.text = sessionManager.getName()
-        text_view_id_account.text = sessionManager.getUserId()
+        var order = intent.getSerializableExtra("ORDER") as Order
+        Log.d("jundebugs", "${order.toString()}")
 
-        button_order_history.setOnClickListener {
-            startActivity(Intent(this, OrderHistoryActivity::class.java))
-        }
+        viewPagerAdapterOrderDetail = ViewPagerAdapterOrderDetails(supportFragmentManager)
+        viewPagerAdapterOrderDetail.addFragment(order)
+        view_pager_details.adapter = viewPagerAdapterOrderDetail
+        tab_layout_details.setupWithViewPager(view_pager_details)
 
-        button_manage_address.setOnClickListener {
-            startActivity(Intent(this, AddressActivity::class.java))
-        }
+
     }
 
     private fun setupToolbar(){
         var toolbar = tool_bar
-        toolbar.title ="Account"
+        toolbar.title ="Order Details"
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
@@ -62,7 +63,7 @@ class AccountActivity : AppCompatActivity() {
                 startActivity(Intent(this, LoginActivity::class.java))
             }
             android.R.id.home -> {
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, OrderHistoryActivity::class.java))
             }
             R.id.menu_account -> {
                 startActivity(Intent(this, AccountActivity::class.java))

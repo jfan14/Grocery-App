@@ -1,10 +1,12 @@
 package com.junfan.groceryapp.models
 
+import java.io.Serializable
+
 data class SubCategoryResponse(
     val count: Int,
     val data: ArrayList<SubCategory>,
     val error: Boolean
-)
+): Serializable
 
 data class SubCategory(
     val __v: Int,
@@ -16,4 +18,4 @@ data class SubCategory(
     val subId: Int,
     val subImage: String,
     val subName: String
-)
+): Serializable

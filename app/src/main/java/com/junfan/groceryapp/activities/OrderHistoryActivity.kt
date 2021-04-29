@@ -40,7 +40,6 @@ class OrderHistoryActivity : AppCompatActivity() {
         sessionManager = SessionManager(this)
         setupToolbar()
         getOrdersDetails()
-        //var orderAdapter = OrderAdapter(this)
         recycler_view_order.adapter = orderAdapter
         recycler_view_order.layoutManager = LinearLayoutManager(this)
     }
@@ -67,7 +66,7 @@ class OrderHistoryActivity : AppCompatActivity() {
                 startActivity(Intent(this, LoginActivity::class.java))
             }
             android.R.id.home -> {
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, AccountActivity::class.java))
             }
             R.id.menu_account -> {
                 startActivity(Intent(this, AccountActivity::class.java))

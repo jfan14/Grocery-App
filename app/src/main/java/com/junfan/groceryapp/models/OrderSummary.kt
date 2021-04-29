@@ -1,10 +1,12 @@
 package com.junfan.groceryapp.models
 
+import java.io.Serializable
+
 data class OrderResponse(
     val count: Int,
     val data: ArrayList<Order>,
     val error: Boolean
-)
+): Serializable
 
 data class Order(
     //val __v: Int,
@@ -17,7 +19,7 @@ data class Order(
     val shippingAddress: ShippingAddress,
     val user: User,
     val userId: String
-)
+): Serializable
 
 data class OrderSummary(
     //val _id: String,
@@ -26,13 +28,13 @@ data class OrderSummary(
     val orderAmount: Float,
     val ourPrice: Float,
     val totalAmount: Float
-)
+): Serializable
 
 data class Payment(
     //val _id: String,
     val paymentMode: String,
     val paymentStatus: String
-)
+): Serializable
 
 data class ShippingAddress(
     //val _id: String,
@@ -41,4 +43,4 @@ data class ShippingAddress(
     val pincode: Int,
     val streetName: String,
     val type: String
-)
+): Serializable

@@ -1,13 +1,18 @@
 package com.junfan.groceryapp.adapters
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.junfan.groceryapp.R
+import com.junfan.groceryapp.activities.OrderDetailsActivity
 import com.junfan.groceryapp.models.Order
 import kotlinx.android.synthetic.main.row_order_adapter.view.*
+import java.text.ParseException
+import java.text.SimpleDateFormat
 
 class OrderAdapter(var mContext: Context): RecyclerView.Adapter<OrderAdapter.MyViewHolder>() {
 
@@ -34,7 +39,7 @@ class OrderAdapter(var mContext: Context): RecyclerView.Adapter<OrderAdapter.MyV
 
     inner class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         fun bind(order: Order) {
-            itemView.order_date_orders.text = order.date
+            itemView.order_date_orders.text = convertMongoDate(order.date)
             var orderText = ""
             for(i in order.products) {
                 orderText += "${i.quantity} x ${i.productName}\n"
@@ -42,7 +47,27 @@ class OrderAdapter(var mContext: Context): RecyclerView.Adapter<OrderAdapter.MyV
             itemView.order_items_orders.text = orderText
             var orderSummary = order.orderSummary
             if(orderSummary != null) itemView.order_total_orders.text = orderSummary.totalAmount.toString()
+
+            itemView.setOnClickListener {
+                var intent = Intent(mContext, OrderDetailsActivity::class.java)
+                intent.putExtra("ORDER", order)
+                Log.d("jundebug", "${order.toString()}")
+                mContext.startActivity(intent)
+            }
         }
+    }
+
+    fun convertMongoDate(date: String): String? {
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+        val outputFormat = SimpleDateFormat("MMM d, yyyy")
+        try {
+            val finalStr: String = outputFormat.format(inputFormat.parse(date))
+            println(finalStr)
+            return finalStr
+        } catch (e: ParseException) {
+            e.printStackTrace()
+        }
+        return ""
     }
 
 }

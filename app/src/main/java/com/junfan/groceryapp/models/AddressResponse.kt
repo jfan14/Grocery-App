@@ -6,7 +6,7 @@ data class AddressResponse(
     val data: ArrayList<Address>,
     val error: Boolean,
     val message: String
-)
+): Serializable
 
 data class Address(
     val __v: Int,

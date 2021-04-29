@@ -1,14 +1,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/deeper_green"
-    android:padding="16dp">
+    android:background="@color/deeper_green">
+
+    <include layout="@layout/app_bar"/>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/relative_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/tool_bar"
         android:background="@color/white"
+        android:layout_margin="16dp"
         android:padding="16dp">
 
         <ImageView
@@ -43,6 +46,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:layout_below="@+id/relative_layout"
         android:layout_marginTop="26dp">
 
