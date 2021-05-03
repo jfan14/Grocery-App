@@ -1,0 +1,22 @@
+<RelativeLayout android:layout_width="38dp"
+    android:layout_height="wrap_content"
+    android:id="@+id/menu_cart_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:layout_width="38dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_shopping_cart_24"/>
+    
+    <TextView
+        android:id="@+id/badge_circle"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/badge_circle"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="10dp"/>
+
+</RelativeLayout>

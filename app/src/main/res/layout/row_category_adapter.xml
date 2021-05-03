@@ -3,7 +3,7 @@
     android:layout_height="wrap_content"
     android:padding="12dp"
     android:background="@drawable/item_background_design"
-    android:layout_margin="16dp">
+    android:layout_margin="5dp">
 
 
 

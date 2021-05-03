@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 import com.junfan.groceryapp.models.OrderSummary
 import com.junfan.groceryapp.models.Product
 import com.junfan.groceryapp.session.SessionManager
@@ -24,6 +25,7 @@ class DBHelper(var mContext: Context) :
         const val COLUMN_IMAGE = "image"
         const val COLUMN_MRP = "mrp"
         const val COLUMN_COUNT = "count"
+        const val COLUMN_COUNT_QUANTITY = "quantities"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -78,6 +80,18 @@ class DBHelper(var mContext: Context) :
         var whereArgs = arrayOf(product._id)
 
         return db.update(TABLE_NAME, contentValues, whereClause, whereArgs)
+    }
+
+    fun getQuantity(): Int {
+        var sum = 0;
+        var query = "select sum($COLUMN_COUNT) as $COLUMN_COUNT_QUANTITY from $TABLE_NAME"
+        var cursor = db.rawQuery(query, null)
+        if(cursor.moveToFirst()) {
+            sum = cursor.getInt(cursor.getColumnIndex(COLUMN_COUNT_QUANTITY))
+        }
+        Log.d("acde", "$sum")
+        return sum
+
     }
 
     fun decrementQuantity(product: Product): Int {

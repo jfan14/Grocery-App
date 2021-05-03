@@ -3,10 +3,13 @@ package com.junfan.groceryapp.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
@@ -21,6 +24,7 @@ import kotlinx.android.synthetic.main.activity_cart.*
 import kotlinx.android.synthetic.main.activity_cart.button_place_order_cart
 import kotlinx.android.synthetic.main.app_bar.*
 import kotlinx.android.synthetic.main.empty_cart_layout.*
+import kotlinx.android.synthetic.main.menu_cart_layout.view.*
 import org.json.JSONObject
 import kotlin.properties.Delegates
 
@@ -29,17 +33,30 @@ class CartActivity : AppCompatActivity(), CartAdapter.OnAdapterListener {
     lateinit var dbHelper: DBHelper
     lateinit var mList: ArrayList<Product>
     lateinit var cartAdapter: CartAdapter
+    private var textViewCartCount: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
 
+
         empty_layout.visibility = View.GONE
-
         dbHelper = DBHelper(this)
+        updateCartCount()
         mList = dbHelper.getAllProduct()
-
         init()
+    }
+
+    fun updateCartCount() {
+        var count = dbHelper.getQuantity()
+        //Log.d("acd2", "$count")
+        if(count == 0) {
+            Log.d("acd2", "$count")
+            textViewCartCount?.visibility = View.GONE
+        }else{
+            textViewCartCount?.visibility = View.VISIBLE
+            textViewCartCount?.text = count.toString()
+        }
     }
 
     private fun setupToolbar(){
@@ -52,6 +69,11 @@ class CartActivity : AppCompatActivity(), CartAdapter.OnAdapterListener {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.cart_menu, menu)
+        var item = menu?.findItem(R.id.menu_cart)
+        MenuItemCompat.setActionView(item, R.layout.menu_cart_layout)
+        var view = MenuItemCompat.getActionView(item)
+        textViewCartCount = view.badge_circle
+        updateCartCount()
         return true;
     }
 
@@ -114,14 +136,17 @@ class CartActivity : AppCompatActivity(), CartAdapter.OnAdapterListener {
         when(view.id){
             R.id.button_add_cart_adapter -> {
                 updateText()
+                updateCartCount()
             }
             R.id.button_minus_cart_adapter -> {
                 isCartEmpty()
                 updateText()
+                updateCartCount()
             }
             R.id.button_delete_cart_adapter -> {
                 isCartEmpty()
                 updateText()
+                updateCartCount()
             }
         }
     }

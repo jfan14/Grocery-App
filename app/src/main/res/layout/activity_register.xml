@@ -2,6 +2,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/green_faded"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
@@ -14,68 +15,112 @@
         android:textStyle="bold"
         android:gravity="center"/>
 
-    <EditText
-        android:id="@+id/edit_text_firstname_register"
-        android:drawableLeft="@drawable/ic_baseline_person_24"
-        android:drawablePadding="15dp"
-        android:background="@drawable/item_background_design"
-        android:textColorHint="@color/light_green"
-        android:paddingLeft="16dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="30dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_layout_email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="FirstName"
-        android:textSize="26dp"/>
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="30dp"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+        android:gravity="center_vertical"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/edit_background"
+        android:textColorHint="@color/white"
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/edit_text_email_register"
-        android:background="@drawable/item_background_design"
-        android:textColorHint="@color/light_green"
-        android:paddingLeft="16dp"
-        android:drawableLeft="@drawable/ic_baseline_email_24"
-        android:drawablePadding="15dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:textSize="26dp"
-        android:inputType="textEmailAddress"/>
+        <EditText
+            android:id="@+id/edit_text_firstname_register"
+            android:drawableLeft="@drawable/ic_baseline_person_24"
+            android:drawablePadding="15dp"
+            android:background="@android:color/transparent"
+            android:paddingBottom="11dp"
+            android:textColorHint="@color/light_green"
+            android:paddingLeft="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="FirstName"
+            android:textSize="26dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/edit_text_password_register"
-        android:background="@drawable/item_background_design"
-        android:textColorHint="@color/light_green"
-        android:paddingLeft="16dp"
-        android:drawableLeft="@drawable/ic_baseline_lock_24"
-        android:drawablePadding="15dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="20dp"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:textSize="26dp"
-        android:inputType="textPassword"/>
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="30dp"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+        android:gravity="center_vertical"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/edit_background"
+        android:textColorHint="@color/white"
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/edit_text_mobile_register"
-        android:background="@drawable/item_background_design"
-        android:textColorHint="@color/light_green"
-        android:paddingLeft="16dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="20dp"
+        <EditText
+            android:id="@+id/edit_text_email_register"
+            android:background="@android:color/transparent"
+            android:paddingBottom="11dp"
+            android:textColorHint="@color/light_green"
+            android:paddingLeft="16dp"
+            android:drawableLeft="@drawable/ic_baseline_email_24"
+            android:drawablePadding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:textSize="26dp"
+            android:inputType="textEmailAddress"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_baseline_phone_iphone_24"
-        android:drawablePadding="15dp"
-        android:hint="Mobile"
-        android:textSize="26dp"
-        android:inputType="phone"/>
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="30dp"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+        android:gravity="center_vertical"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/edit_background"
+        android:textColorHint="@color/white"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edit_text_password_register"
+            android:background="@android:color/transparent"
+            android:textColorHint="@color/light_green"
+            android:paddingLeft="16dp"
+            android:drawableLeft="@drawable/ic_baseline_lock_24"
+            android:drawablePadding="15dp"
+            android:layout_marginTop="20dp"
+            android:paddingBottom="11dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:textSize="26dp"
+            android:inputType="textPassword"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="30dp"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+        android:gravity="center_vertical"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/edit_background"
+        android:textColorHint="@color/white"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edit_text_mobile_register"
+            android:background="@android:color/transparent"
+            android:textColorHint="@color/light_green"
+            android:paddingLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:paddingBottom="11dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_baseline_phone_iphone_24"
+            android:drawablePadding="15dp"
+            android:hint="Mobile"
+            android:textSize="26dp"
+            android:inputType="phone"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/button_register_register"

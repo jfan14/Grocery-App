@@ -1,6 +1,7 @@
 package com.junfan.groceryapp.adapters
 
 import android.content.Context
+import android.graphics.Paint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -58,6 +59,8 @@ class CartAdapter(var mContext: Context) : RecyclerView.Adapter<CartAdapter.MyVi
 
             itemView.text_view_name_cart.text = product.productName
             itemView.text_view_price_cart.text = product.price.toString()
+            itemView.text_view_mrp_cart.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+            itemView.text_view_mrp_cart.text = product.mrp.toString()
             itemView.text_view_count_cart_adapter.text = product.quantity.toString()
 
             Picasso
@@ -69,24 +72,26 @@ class CartAdapter(var mContext: Context) : RecyclerView.Adapter<CartAdapter.MyVi
                 dbHelper.incrementQuantity(product)
                 mList = dbHelper.getAllProduct()
                 setData(mList)
+                //cartActivity.updateCartCount()
                 listener?.onButtonClicked(it, position)
                 itemView.text_view_count_cart_adapter.text = product.quantity.toString()
-
             }
 
             itemView.button_minus_cart_adapter.setOnClickListener {
+
                 dbHelper.decrementQuantity(product)
                 mList = dbHelper.getAllProduct()
                 setData(mList)
+                //cartActivity.updateCartCount()
                 itemView.text_view_count_cart_adapter.text = product.quantity.toString()
                 listener?.onButtonClicked(it, position)
-
             }
 
             itemView.button_delete_cart_adapter.setOnClickListener {
                 dbHelper.deleteProduct(product)
                 mList = dbHelper.getAllProduct()
                 setData(mList)
+                //cartActivity.updateCartCount()
                 listener?.onButtonClicked(it, position)
             }
             //Log.d("abcd", "${product.quantity}")

@@ -3,22 +3,31 @@ package com.junfan.groceryapp.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.MenuItemCompat
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.junfan.groceryapp.R
 import com.junfan.groceryapp.app.Endpoints
+import com.junfan.groceryapp.database.DBHelper
 import com.junfan.groceryapp.models.Address
 import com.junfan.groceryapp.session.SessionManager
 import kotlinx.android.synthetic.main.activity_update_address.*
 import kotlinx.android.synthetic.main.app_bar.*
+import kotlinx.android.synthetic.main.menu_cart_layout.view.*
 import org.json.JSONObject
 
 class UpdateAddressActivity : AppCompatActivity() {
+
+    private var textViewCartCount: TextView? = null
+    lateinit var dbHelper: DBHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +38,7 @@ class UpdateAddressActivity : AppCompatActivity() {
 
     private fun init() {
         setupToolbar()
+        dbHelper = DBHelper(this)
         var address = intent.getSerializableExtra("ADDRESS") as Address
         editTextData(address)
 
@@ -87,7 +97,27 @@ class UpdateAddressActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.cart_menu, menu)
+        var item = menu?.findItem(R.id.menu_cart)
+        MenuItemCompat.setActionView(item, R.layout.menu_cart_layout)
+        var view = MenuItemCompat.getActionView(item)
+        textViewCartCount = view.badge_circle
+        updateCartCount()
+        view.setOnClickListener {
+            startActivity(Intent(this, CartActivity::class.java))
+        }
         return true;
+    }
+
+    fun updateCartCount() {
+        var count = dbHelper.getQuantity()
+        //Log.d("acd2", "$count")
+        if(count == 0) {
+            Log.d("acd2", "$count")
+            textViewCartCount?.visibility = View.GONE
+        }else{
+            textViewCartCount?.visibility = View.VISIBLE
+            textViewCartCount?.text = count.toString()
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

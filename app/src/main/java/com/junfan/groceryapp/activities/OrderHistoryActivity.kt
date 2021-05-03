@@ -85,6 +85,7 @@ class OrderHistoryActivity : AppCompatActivity() {
                 var gson = Gson()
                 var orderResponse = gson.fromJson(it, OrderResponse::class.java)
                 orderList = orderResponse.data
+                orderList.reverse()
                 orderAdapter.setData(orderList)
                 Log.d("AG", "$orderList")
                 Toast.makeText(applicationContext, "Got data", Toast.LENGTH_SHORT).show()

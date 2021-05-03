@@ -3,6 +3,7 @@ package com.junfan.groceryapp.adapters
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -44,6 +45,8 @@ class AdapterSubCategory(var mContext: Context): RecyclerView.Adapter<AdapterSub
         fun bind(product: Product) {
             itemView.text_view_product_name.text = product.productName
             itemView.text_view_product_price.text = product.price.toString()
+            itemView.text_view_product_mrp.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+            itemView.text_view_product_mrp.text = product.mrp.toString()
             Picasso
                 .get()
                 .load("${Config.IMAGE_URL+product.image}")
